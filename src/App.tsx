@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { ToastContainer } from "react-toastify"
 import { ThemeProvider } from "styled-components"
 import { GlobalStyle } from "./components/GlobalStyle"
 import {
@@ -73,16 +74,19 @@ const App = () => {
             {isOpen ? <AppButtonClose /> : <AppButtonOpen />}
           </AppButton>
           <AppDiv>
-            <AppTitleH1>Phonebook</AppTitleH1>
-            <Form />
-            <AppContactsDiv>
-              <AppTitleH2>Contacts</AppTitleH2>
-              <Filter />
-              <ContactList />
-            </AppContactsDiv>
+            <>
+              <AppTitleH1>Phonebook</AppTitleH1>
+              <Form />
+              <AppContactsDiv>
+                <AppTitleH2>Contacts</AppTitleH2>
+                <Filter />
+                <ContactList />
+              </AppContactsDiv>
+            </>
           </AppDiv>
         </AppWrapper>
       </AppContainer>
+      <ToastContainer />
     </ThemeProvider>
   )
 }
