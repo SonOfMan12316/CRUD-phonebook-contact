@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useDispatch } from "react-redux"
 import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal"
 import {
   Button,
@@ -7,11 +8,13 @@ import {
   ContactIcon,
   ContactDelete,
 } from "./ContactList.styled"
+import { deleteContact } from "../../store/operations"
+import { AppDispatch } from "../../store/store"
 
 interface ContactItemProps {
   contact: string
-  id: number
-  phoneNumber: number
+  id: string
+  phoneNumber: string
 }
 
 const ContactItem: React.FC<ContactItemProps> = ({
@@ -20,9 +23,15 @@ const ContactItem: React.FC<ContactItemProps> = ({
   phoneNumber,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const dispatch = useDispatch<AppDispatch>()
 
   const handleDelete = () => {
     setIsModalOpen(true)
+  }
+
+  const handleConfirmDelete = (id: string) => {
+    dispatch(deleteContact(id))
+    setIsModalOpen(false)
   }
 
   const handleCloseModal = () => {
@@ -35,10 +44,14 @@ const ContactItem: React.FC<ContactItemProps> = ({
         <ContactIcon />
         {contact}: {phoneNumber}
       </P>
-      <Button>
+      <Button onClick={handleDelete}>
         <ContactDelete />
       </Button>
-      <DeleteConfirmationModal isOpen={isModalOpen}></DeleteConfirmationModal>
+      <DeleteConfirmationModal
+        isOpen={isModalOpen}
+        onRequestClose={handleCloseModal}
+        onConfirm={() => handleConfirmDelete(id)}
+      />
     </List>
   )
 }

@@ -6,7 +6,7 @@ import {
 
 interface ThemeButtonProp {
   toggleTheme: () => void
-  isDarkTheme?: Boolean
+  isDarkTheme: Boolean
 }
 const ThemeButton: React.FC<ThemeButtonProp> = ({
   toggleTheme,

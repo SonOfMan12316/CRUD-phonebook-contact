@@ -3,6 +3,7 @@ import { Formik } from "formik"
 import * as Yup from "yup"
 import { nanoid } from "nanoid"
 import { toast } from "react-toastify"
+import { useDispatch, useSelector } from "react-redux"
 import {
   FormContactBtn,
   FormLabel,
@@ -13,10 +14,17 @@ import {
   FormHiPhone,
   FormInputWrapper,
 } from "./Form.styled"
+import { addContact } from "../../store/operations"
+import { selectContacts } from "../../store/selectors"
+import { Contact } from "../../store/contactSlice"
+import { AppDispatch } from "../../store/store"
 
 const Form = () => {
-  const [name, setName] = useState<String>("")
-  const [phone, setPhone] = useState<String>("")
+  const [name, setName] = useState<string>("")
+  const [phone, setPhone] = useState<string>("")
+
+  const dispatch = useDispatch<AppDispatch>()
+  const contacts = useSelector(selectContacts)
 
   const formSchema = Yup.object({
     name: Yup.string()
@@ -28,6 +36,46 @@ const Form = () => {
       .required("Please fill up the phone number!"),
   })
 
+  const handleSubmit = (values: Contact) => {
+    const newContact = { ...values, id: nanoid() }
+
+    if (!newContact.name || !newContact.phone) {
+      return
+    }
+
+    const contactExist = contacts.some(item => item.name === newContact.name)
+
+    console.log(contactExist)
+
+    if (contactExist) {
+      toast.info(`${newContact.name} is already in contacts.`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "dark",
+      })
+    } else {
+      toast.success(`${newContact.name} added to your contacts.`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+      })
+      dispatch(addContact(newContact))
+    }
+
+    setName("")
+    setPhone("")
+  }
+
   return (
     <Formik
       initialValues={{
@@ -35,7 +83,15 @@ const Form = () => {
         phone: phone,
       }}
       validationSchema={formSchema}
-      onSubmit={(values, actions) => {}}
+      onSubmit={(values, actions) => {
+        handleSubmit(values)
+        actions.resetForm({
+          values: {
+            name: name,
+            phone: phone,
+          },
+        })
+      }}
     >
       <FormStyled className="contact-form">
         <FormLabel htmlFor="name">Name</FormLabel>
