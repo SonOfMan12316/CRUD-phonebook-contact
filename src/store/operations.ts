@@ -1,13 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 import { Contact } from "./contactSlice"
-require("dotenv").config()
 
 interface ErrorPayload {
   message: string
 }
 
-const URL = process.env.URL
+const URL = import.meta.env.VITE_API_KEY
 
 export const getContact = createAsyncThunk<
   Contact[],
