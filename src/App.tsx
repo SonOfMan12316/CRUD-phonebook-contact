@@ -67,7 +67,7 @@ const App = () => {
 
   const dispatch = useDispatch<AppDispatch>()
   const contacts = useSelector(selectContacts)
-  const [initialLoading, setInitialLoading] = useState<boolean>(false)
+  const [initialLoading, setInitialLoading] = useState<boolean>(true)
 
   const toggleTheme = () => {
     setIsDarkTheme(prevIsDarkTheme => !prevIsDarkTheme)
@@ -84,11 +84,7 @@ const App = () => {
         .finally(() => {
           setInitialLoading(false)
         })
-    } catch (error) {
-      if (error instanceof Error) {
-        console.log("Synchronous error:", error)
-      }
-    }
+    } catch (error) {}
   }, [dispatch])
 
   useEffect(() => {

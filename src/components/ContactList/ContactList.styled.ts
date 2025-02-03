@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { BsFillPersonVcardFill } from "react-icons/bs"
-import { MdOutlineDeleteForever } from "react-icons/md"
+import { IoIosContact } from "react-icons/io"
+import { MdDeleteOutline } from "react-icons/md"
 
 export const Menu = styled.ul`
   display: flex;
@@ -12,7 +12,7 @@ export const Menu = styled.ul`
 
 export const Item = styled.li`
   color: ${p => p.theme.colors.textColor};
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 300;
@@ -39,14 +39,14 @@ export const P = styled.p`
   align-items: center;
   justify-content: center;
   color: ${p => p.theme.colors.textColor};
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.28;
 `
 
-export const ContactIcon = styled(BsFillPersonVcardFill)`
+export const ContactIcon = styled(IoIosContact)`
   margin-right: 8px;
   width: 24px;
   height: 24px;
@@ -66,7 +66,7 @@ export const Button = styled.button`
   transition: 0.3s;
 `
 
-export const ContactDelete = styled(MdOutlineDeleteForever)`
+export const ContactDelete = styled(MdDeleteOutline)`
   width: 24px;
   height: 24px;
   transition: 0.3s;

@@ -32,7 +32,7 @@ export const FilterInput = styled.input`
   &::placeholder {
     overflow: hidden;
     color: #777;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 1.4;
@@ -41,7 +41,7 @@ export const FilterInput = styled.input`
 
 export const FilterLabel = styled.label`
   color: ${p => p.theme.colors.textColor};
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

@@ -65,7 +65,7 @@ export const Text = styled.p`
   justify-content: center;
   color: ${p => p.theme.colors.textColor};
   color: #fffaff;
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;

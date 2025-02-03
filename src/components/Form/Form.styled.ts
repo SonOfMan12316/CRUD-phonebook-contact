@@ -32,7 +32,7 @@ export const FormField = styled(Field)`
   &::placeholder {
     overflow: hidden;
     color: #777;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 1.4;
@@ -70,7 +70,7 @@ export const FormError = styled(ErrorMessage)`
 
 export const FormLabel = styled.label`
   color: ${p => p.theme.colors.textColor};
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -88,7 +88,7 @@ export const FormContactBtn = styled.button`
   background-color: ${p => p.theme.colors.contactBtn};
   transition: 0.3s;
   color: ${p => p.theme.colors.textColor};
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;

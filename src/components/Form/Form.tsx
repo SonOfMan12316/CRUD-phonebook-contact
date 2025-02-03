@@ -30,7 +30,7 @@ const Form = () => {
     name: Yup.string()
       .min(1, "Too Short Name!")
       .max(50, "Too Long Name!")
-      .required("Please write a name!"),
+      .required("Name is required"),
     phone: Yup.string()
       .min(9, "Invalid Phone Number")
       .required("Please fill up the phone number!"),
@@ -48,7 +48,7 @@ const Form = () => {
     console.log(contactExist)
 
     if (contactExist) {
-      toast.info(`${newContact.name} is already in contacts.`, {
+      toast.error(`${newContact.name} is already in contacts.`, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -97,7 +97,7 @@ const Form = () => {
         <FormLabel htmlFor="name">Name</FormLabel>
         <FormInputWrapper>
           <FormHiUser />
-          <FormField type="text" name="name" placeholder="John Doe" />
+          <FormField type="text" name="name" placeholder="mancy Dev" />
         </FormInputWrapper>
 
         <FormError component="span" name="name" />
@@ -106,7 +106,7 @@ const Form = () => {
 
         <FormInputWrapper>
           <FormHiPhone />
-          <FormField type="number" name="phone" placeholder="123 45 6789" />
+          <FormField type="text" name="phone" placeholder="123 45 6789" />
         </FormInputWrapper>
 
         <FormError component="span" name="phone" />

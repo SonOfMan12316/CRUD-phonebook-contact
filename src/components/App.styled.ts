@@ -75,19 +75,19 @@ export const AppDiv = styled.div`
 
 export const AppTitleH1 = styled.h1`
   color: ${p => p.theme.colors.textColor};
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 36px;
   font-weight: 600;
   line-height: 120%;
-  text-transform: uppercase;
+  text-transform: capitalize;
 `
 export const AppTitleH2 = styled.h1`
   color: ${p => p.theme.colors.textColor};
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 36px;
   font-weight: 600;
   line-height: 120%;
-  text-transform: uppercase;
+  text-transform: capitalize;
 `
 
 export const AppContactsDiv = styled.div`

@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
   height: 100vh;
   overflow: hidden;
   background-color: ${p => p.theme.colors.mainBgColor};
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   }
 
   p {
