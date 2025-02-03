@@ -51,7 +51,7 @@ export const addContact = createAsyncThunk<
 })
 
 export const deleteContact = createAsyncThunk<
-  string,
+  {id: string},
   string,
   { rejectValue: ErrorPayload }
 >("contacts/deleteContact", async (contactId: string, thunkAPI) => {
